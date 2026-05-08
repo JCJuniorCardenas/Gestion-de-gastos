@@ -1,0 +1,62 @@
+// Prisma Schema - Expense Tracker API
+
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ===== MODELS =====
+
+// Usuario del sistema
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String     // Hasheada con bcrypt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relaciones
+  categories Category[]
+  expenses   Expense[]
+
+  @@map("users")
+}
+
+// Categorías de gastos (creadas por usuario)
+model Category {
+  id          String     @id @default(uuid())
+  name        String
+  description String?
+  userId      String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // Relaciones
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expenses    Expense[]
+
+  @@map("categories")
+}
+
+// Gastos individuales
+model Expense {
+  id          String     @id @default(uuid())
+  amount      Decimal    @db.Decimal(10, 2)
+  description String
+  date        DateTime
+  imageUrl    String?
+  userId      String
+  categoryId  String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  // Relaciones
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  category    Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@map("expenses")
+}
+
