@@ -106,6 +106,7 @@ npm run dev
 ### Autenticación
 
 #### Registrar
+
 ```http
 POST /auth/register
 Content-Type: application/json
@@ -117,6 +118,7 @@ Content-Type: application/json
 ```
 
 #### Login
+
 ```http
 POST /auth/login
 Content-Type: application/json
@@ -132,6 +134,7 @@ Content-Type: application/json
 ### Gastos (Expenses)
 
 #### Crear Gasto
+
 ```http
 POST /expenses
 Authorization: Bearer {token}
@@ -146,18 +149,21 @@ Content-Type: application/json
 ```
 
 #### Obtener Todos
+
 ```http
 GET /expenses
 Authorization: Bearer {token}
 ```
 
 #### Obtener por ID
+
 ```http
 GET /expenses/:id
 Authorization: Bearer {token}
 ```
 
 #### Actualizar
+
 ```http
 PATCH /expenses/:id
 Authorization: Bearer {token}
@@ -170,6 +176,7 @@ Content-Type: application/json
 ```
 
 #### Eliminar
+
 ```http
 DELETE /expenses/:id
 Authorization: Bearer {token}
@@ -180,6 +187,7 @@ Authorization: Bearer {token}
 ### Ingresos (Incomes)
 
 #### Crear Ingreso
+
 ```http
 POST /incomes
 Authorization: Bearer {token}
@@ -193,18 +201,21 @@ Content-Type: application/json
 ```
 
 #### Obtener Todos
+
 ```http
 GET /incomes
 Authorization: Bearer {token}
 ```
 
 #### Obtener por ID
+
 ```http
 GET /incomes/:id
 Authorization: Bearer {token}
 ```
 
 #### Actualizar
+
 ```http
 PATCH /incomes/:id
 Authorization: Bearer {token}
@@ -216,6 +227,7 @@ Content-Type: application/json
 ```
 
 #### Eliminar
+
 ```http
 DELETE /incomes/:id
 Authorization: Bearer {token}
@@ -226,6 +238,7 @@ Authorization: Bearer {token}
 ### Categorías (Categories)
 
 #### Crear Categoría
+
 ```http
 POST /categories
 Authorization: Bearer {token}
@@ -238,18 +251,21 @@ Content-Type: application/json
 ```
 
 #### Obtener Todas
+
 ```http
 GET /categories
 Authorization: Bearer {token}
 ```
 
 #### Obtener por ID
+
 ```http
 GET /categories/:id
 Authorization: Bearer {token}
 ```
 
 #### Actualizar
+
 ```http
 PATCH /categories/:id
 Authorization: Bearer {token}
@@ -261,6 +277,7 @@ Content-Type: application/json
 ```
 
 #### Eliminar
+
 ```http
 DELETE /categories/:id
 Authorization: Bearer {token}
@@ -284,6 +301,7 @@ Authorization: Bearer {token}
 Accede a la documentación interactiva en: **http://localhost:3000/api**
 
 Para probar endpoints protegidos:
+
 1. Llama a `/auth/login` o `/auth/register`
 2. Copia el `access_token` de la respuesta
 3. Presiona "Authorize" en Swagger
