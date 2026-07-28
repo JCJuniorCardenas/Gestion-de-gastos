@@ -114,16 +114,27 @@ export default function DashboardPage() {
 
       {/* Tabs & Form */}
       <div className="bg-white rounded-2xl shadow-sm p-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex gap-2">
-            <button onClick={() => setActiveTab('expenses')} className={`px-4 py-2 rounded-lg font-medium transition ${activeTab === 'expenses' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
-              Gastos
-            </button>
-            <button onClick={() => setActiveTab('incomes')} className={`px-4 py-2 rounded-lg font-medium transition ${activeTab === 'incomes' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
-              Ingresos
-            </button>
-          </div>
-          <button onClick={() => setShowForm(!showForm)} className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <button
+            onClick={() => setActiveTab('expenses')}
+            className={`flex-1 min-w-[0] px-4 py-2 rounded-lg font-medium text-center transition ${
+              activeTab === 'expenses' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Gastos
+          </button>
+          <button
+            onClick={() => setActiveTab('incomes')}
+            className={`flex-1 min-w-[0] px-4 py-2 rounded-lg font-medium text-center transition ${
+              activeTab === 'incomes' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            }`}
+          >
+            Ingresos
+          </button>
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="flex-1 min-w-[0] bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition text-center"
+          >
             + {activeTab === 'expenses' ? 'Nuevo gasto' : 'Nuevo ingreso'}
           </button>
         </div>
