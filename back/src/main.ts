@@ -6,12 +6,26 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+const allowedOrigins = [
+  'http://localhost:3001',
+  'http://192.168.1.32:3001',
+  'https://gestion-de-gastos-ten.vercel.app',
+];
+const vercelPreviewOriginRegex = /^https:\/\/gestion-de-gastos-[a-z0-9-]+\.vercel\.app$/;
+
 app.enableCors({
-  origin: [
-    'http://localhost:3001',
-    'http://192.168.1.32:3001',
-    'https://gestion-de-gastos-ten.vercel.app',
-  ],
+  origin: (origin, callback) => {
+    if (!origin) {
+      // Permitir solicitudes sin Origin (por ejemplo, herramientas de servidor o CURL).
+      return callback(null, true);
+    }
+
+    if (allowedOrigins.includes(origin) || vercelPreviewOriginRegex.test(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS policy: Origin ${origin} no está permitida.`));
+  },
   credentials: true,
 });
 
