@@ -149,6 +149,7 @@ export default function DashboardPage() {
                   <input
                     type="number"
                     step="0.01"
+                    max="99999999.99"
                     value={activeTab === 'expenses' ? expenseForm.amount : incomeForm.amount}
                     onChange={(e) => (activeTab === 'expenses' ? setExpenseForm({ ...expenseForm, amount: e.target.value }) : setIncomeForm({ ...incomeForm, amount: e.target.value }))}
                     required
