@@ -6,6 +6,14 @@ Aplicación full-stack de gestión financiera personal que permite registrar y r
 
 **Registro Financiero** es una solución moderna para gestionar tus finanzas personales. Registra tus gastos e ingresos, categorizalos y visualiza tu balance financiero en tiempo real.
 
+## 🚀 Demo en Vivo
+
+- 🖥️ **Frontend:** [gestion-de-gastos-ten.vercel.app](https://gestion-de-gastos-ten.vercel.app)
+- 🔌 **API + Swagger Docs:** [gestion-de-gastos-gvho.onrender.com/api](https://gestion-de-gastos-gvho.onrender.com/api)
+
+> ⚠️ El backend está en el free tier de Render: si nadie lo usó en los últimos 15 min, la primera petición puede tardar ~30-50 segundos en responder (cold start). Dale un momento a la primera carga.
+
+
 ### Características Principales
 
 - 📊 Registro completo de gastos e ingresos
