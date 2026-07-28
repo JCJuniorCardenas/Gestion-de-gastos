@@ -26,6 +26,8 @@ app.enableCors({
 
     return callback(new Error(`CORS policy: Origin ${origin} no está permitida.`));
   },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 });
 
